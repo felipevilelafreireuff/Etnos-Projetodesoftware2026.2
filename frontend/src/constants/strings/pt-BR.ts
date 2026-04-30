@@ -12,17 +12,17 @@ const ptBR = {
   },
 
   home: {
-    titulo:       'Ethnos',
-    subtitulo:    'Implementação digital do jogo de tabuleiro Ethnos',
+    titulo:       'EtNós',
+    subtitulo:    'Implementação digital do jogo de tabuleiro EtNós',
     badge:        'Projeto de Software · UFF',
-    descricao:    'Modelagem e implementação orientada a objetos do jogo Ethnos, com frontend interativo e backend Python.',
+    descricao:    'Modelagem e implementação orientada a objetos do jogo EtNós, com frontend interativo e backend Python.',
     rf:           'Requisitos Funcionais',
     rnf:          'Requisitos Não Funcionais',
     visaoGeral:   'Sobre o Projeto',
     cards: {
       visaoGeral: {
         titulo: 'Visão Geral',
-        desc:   'Implementação digital do jogo de tabuleiro Ethnos com tribos e reinos, adaptado para uma versão simplificada com foco em modelagem orientada a objetos.',
+        desc:   'Implementação digital do jogo de tabuleiro EtNós com tribos e reinos, adaptado para uma versão simplificada com foco em modelagem orientada a objetos.',
       },
       stack: {
         titulo: 'Stack Tecnológica',
@@ -63,7 +63,7 @@ const ptBR = {
       disciplina:   'Projeto de Software',
       periodo:      '2026.1',
       universidade: 'Universidade Federal Fluminense',
-      projeto:      'Ethnos — Adaptação do Ethnos',
+      projeto:      'EtNós — Adaptação do Ethnos',
     },
   },
 

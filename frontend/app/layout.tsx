@@ -5,8 +5,8 @@ import { LocaleProvider } from '@/src/contexts/LocaleContext';
 import Header from '@/src/components/layout/Header';
 
 export const metadata: Metadata = {
-  title: 'Ethnos — UFF',
-  description: 'Implementação digital do jogo de tabuleiro Ethnos',
+  title: 'EtNós — UFF',
+  description: 'Implementação digital do jogo de tabuleiro EtNós',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

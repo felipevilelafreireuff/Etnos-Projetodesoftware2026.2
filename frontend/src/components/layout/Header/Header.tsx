@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <span className={styles.logo}>Ethnos</span>
+      <span className={styles.logo}>EtNós</span>
 
       <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
         {NAV_ITEMS.map(item => (

@@ -14,17 +14,17 @@ const en: StringsShape = {
   },
 
   home: {
-    titulo:     'Ethnos',
-    subtitulo:  'Digital implementation of the board game Ethnos',
+    titulo:     'EtNós',
+    subtitulo:  'Digital implementation of the board game EtNós',
     badge:      'Software Project · UFF',
-    descricao:  'Object-oriented modeling and implementation of the Ethnos board game, with an interactive frontend and Python backend.',
+    descricao:  'Object-oriented modeling and implementation of the EtNós board game, with an interactive frontend and Python backend.',
     rf:         'Functional Requirements',
     rnf:        'Non-Functional Requirements',
     visaoGeral: 'About the Project',
     cards: {
       visaoGeral: {
         titulo: 'Overview',
-        desc:   'Digital implementation of the Ethnos board game with tribes and kingdoms, adapted to a simplified version focused on object-oriented modeling.',
+        desc:   'Digital implementation of the EtNós board game with tribes and kingdoms, adapted to a simplified version focused on object-oriented modeling.',
       },
       stack: {
         titulo: 'Tech Stack',
@@ -65,7 +65,7 @@ const en: StringsShape = {
       disciplina:   'Software Project',
       periodo:      '2026.1',
       universidade: 'Universidade Federal Fluminense',
-      projeto:      'Ethnos — Ethnos Adaptation',
+      projeto:      'EtNós — Ethnos Adaptation',
     },
   },
 
