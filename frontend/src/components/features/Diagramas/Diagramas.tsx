@@ -7,7 +7,7 @@ import styles from './Diagramas.module.css';
 
 export default function Diagramas() {
   const S = useStrings();
-  const { tab, setTab, mermaid, loading, error, codigo } = useDiagramasScreen();
+  const { tab, setTab, lang, setLang, mermaid, loading, error, codigo } = useDiagramasScreen();
 
   return (
     <div className={styles.page}>
@@ -37,9 +37,25 @@ export default function Diagramas() {
       {loading && <LoadingState label={S.diagramas.carregando} />}
       {error   && <p className={styles.error}>{S.errors.network}</p>}
       {mermaid && <MermaidViewer chart={mermaid} />}
-      {tab === 'jogar-bando' && codigo && (
+      {(tab === 'jogar-bando' || tab === 'comunicacao') && codigo && (
         <div className={styles.codigoBloco}>
-          <h3 className={styles.codigoTitulo}>Implementação</h3>
+          <div className={styles.codigoHeader}>
+            <h3 className={styles.codigoTitulo}>Implementação</h3>
+            <div className={styles.langToggle}>
+              <button
+                className={`${styles.langBtn} ${lang === 'python' ? styles.langActive : ''}`}
+                onClick={() => setLang('python')}
+              >
+                Python
+              </button>
+              <button
+                className={`${styles.langBtn} ${lang === 'typescript' ? styles.langActive : ''}`}
+                onClick={() => setLang('typescript')}
+              >
+                TypeScript
+              </button>
+            </div>
+          </div>
           <pre className={styles.codigo}><code>{codigo}</code></pre>
         </div>
       )}

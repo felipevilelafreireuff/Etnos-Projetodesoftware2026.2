@@ -1,120 +1,6 @@
 /** Diagrama de classes Mermaid do projeto EtNós. */
 export const DIAGRAMA_CLASSES = `classDiagram
-  class EstadoJogo {
-    <<enumeration>>
-    CONFIGURACAO
-    EM_ANDAMENTO
-    FIM_DE_ERA
-    FINALIZADO
-  }
-  class CorReino {
-    <<enumeration>>
-    VERMELHO
-    AZUL
-    VERDE
-    AMARELO
-    ROXO
-    LARANJA
-  }
-  class NomeTribo {
-    <<enumeration>>
-    TRIBO_1
-    TRIBO_2
-    TRIBO_3
-    TRIBO_4
-    DRAGAO
-  }
-  class FonteRecrutamento {
-    <<enumeration>>
-    DECK
-    VISIVEIS
-  }
-  class Habilidade {
-    <<abstract>>
-    +executar(jogador, jogo, bando)* void
-  }
-  class HabilidadeNula {
-    +executar(jogador, jogo, bando) void
-  }
-  class Tribo {
-    +nome : NomeTribo
-    +habilidade : Habilidade
-    +aplicarHabilidade(jogador, jogo, bando) void
-  }
-  class FichaGloria {
-    +valor : number
-    +espaco : number
-    +atribuida : boolean
-  }
-  class MarcadorControle {
-    +jogador : Jogador
-    +reino : Reino | null
-  }
-  class Carta {
-    +id : number
-    +tribo : Tribo
-    +corReino : CorReino
-    +ehDragao : boolean
-    +getTribo() Tribo
-  }
-  class CartasVisiveis {
-    +adicionar(carta) void
-    +adicionarVarias(cartas) void
-    +retirar(idx) Carta
-    +limpar() void
-    +length() number
-    +toArray() Carta[]
-  }
-  class Bando {
-    +cartas : Carta[]
-    +lider : Carta
-    +calcularTamanho() number
-    +validarBando() boolean
-    +calcularPontuacao() number
-    +getLider() Carta
-    +getCorLider() CorReino
-  }
-  class Deck {
-    +cartas : Carta[]
-    +embaralhar() void
-    +comprar() Carta
-    +adicionarAoFundo(cartas) void
-    +adicionarAoTopo(cartas) void
-    +devolverCartas(cartas) void
-    +estaVazio() boolean
-    +tamanho() number
-  }
-  class Reino {
-    +cor : CorReino
-    +fichasGloria : FichaGloria[]
-    +marcadores : MarcadorControle[]
-    +podeAdicionarMarcador(tamanhoBando) boolean
-    +adicionarMarcador(marcador) void
-    +contarMarcadores() number
-    +calcularControle() Jogador
-    +proximaFichaGloria() FichaGloria
-  }
-  class Jogador {
-    +id : number
-    +nome : string
-    +cor : CorReino
-    +pontosGloria : number
-    +mao : Carta[]
-    +marcadoresDisponiveis : MarcadorControle[]
-    +maoCheia() boolean
-    +receberCarta(carta) void
-    +descartarMao(cartasVisiveis) void
-    +receberPontos(pontos) void
-    +posicionarMarcador(reino) MarcadorControle
-    +jogarBando(bando, jogo) void
-    +contarMarcadoresNoTabuleiro(reinos) number
-  }
   class Jogo {
-    +deck : Deck
-    +cartasVisiveis : CartasVisiveis
-    +jogadores : Jogador[]
-    +reinos : Reino[]
-    +estado : EstadoJogo
     +eraAtual : number
     +turnoAtual : number
     +dragoesRevelados : number
@@ -127,33 +13,92 @@ export const DIAGRAMA_CLASSES = `classDiagram
     +jogadorAtual() Jogador
     +proximoTurno() void
     +getReino(cor) Reino
-    +criarPartida(nomes)$ Jogo
+    +criarPartida(nomes) Jogo
   }
-  class FabricaJogo {
-    +montar(nomes)$ Jogo
+  class Jogador {
+    +id : number
+    +nome : string
+    +cor : string
+    +pontosGloria : number
+    +maoCheia() boolean
+    +recrutar(deck) Carta
+    +receberCarta(carta) void
+    +descartarMao(cartasVisiveis) void
+    +receberPontos(pontos) void
+    +posicionarMarcador(reino) MarcadorControle
+    +jogarBando(bando, jogo) void
+    +contarMarcadoresNoTabuleiro(reinos) number
   }
-
-  Habilidade <|-- HabilidadeNula
-  Tribo --> NomeTribo
-  Tribo --> Habilidade
-  Carta --> Tribo
-  Carta --> CorReino
-  Bando "1" --> "1..*" Carta
-  Deck "1" --> "*" Carta
-  Reino --> CorReino
-  Reino "1" --> "3" FichaGloria
-  Reino "1" --> "*" MarcadorControle
-  MarcadorControle --> Jogador
-  MarcadorControle --> Reino
-  Jogador --> CorReino
-  Jogador "1" --> "0..10" Carta
-  Jogador "1" --> "0..12" MarcadorControle
+  class Reino {
+    +cor : string
+    +podeAdicionarMarcador(tamanhoBando) boolean
+    +adicionarMarcador(marcador) void
+    +calcularControle() Jogador
+    +proximaFichaGloria() FichaGloria
+  }
+  class Deck {
+    +embaralhar() void
+    +comprar() Carta
+    +adicionarAoFundo(cartas) void
+    +devolverCartas(cartas) void
+  }
+  class Bando {
+    +lider : Carta
+    +calcularTamanho() number
+    +validarBando() boolean
+    +calcularPontuacao() number
+    +getCorLider() string
+  }
+  class Carta {
+    +id : number
+    +corReino : string
+    +ehDragao : boolean
+    +getTribo() Tribo
+  }
+  class FichaGloria {
+    +valor : number
+    +espaco : number
+    +atribuida : boolean
+  }
+  class MarcadorControle {
+    +jogador : Jogador
+    +reino : Reino | null
+  }
+  class CartasVisiveis {
+    +adicionar(carta) void
+    +adicionarVarias(cartas) void
+    +retirar(idx) Carta
+    +limpar() void
+  }
+  class EstadoJogo {
+    <<enumeration>>
+    CONFIGURACAO
+    EM_ANDAMENTO
+    FIM_DE_ERA
+    FINALIZADO
+  }
+  class Habilidade {
+    <<abstract>>
+    +executar(jogador, jogo, bando)* void
+  }
+  class Tribo {
+    +nome : string
+    +habilidade : Habilidade
+    +aplicarHabilidade(jogador, jogo, bando) void
+  }
   Jogo --> EstadoJogo
-  Jogo "1" --> "1" Deck
-  Jogo "1" --> "1" CartasVisiveis
   Jogo "1" --> "4..6" Jogador
   Jogo "1" --> "6" Reino
-  FabricaJogo ..> Jogo
+  Jogo "1" --> "1" Deck
+  Jogo "1" --> "1" CartasVisiveis
+  Jogador "1" --> "0..10" Carta
+  Reino "1" --> "3" FichaGloria
+  Reino --> MarcadorControle
+  Jogador "1" --> "0..12" MarcadorControle
+  Bando "1" --> "1..*" Carta
+  Deck "1" --> "*" Carta
+  Carta --> Tribo
+  Tribo --> Habilidade
 `;
 
 /** Diagrama de sequência — fluxo completo de jogar um bando. */
@@ -214,7 +159,7 @@ export const DIAGRAMA_SEQUENCIA = `sequenceDiagram
 `;
 
 /** Diagrama de comunicação UML — fluxo jogar bando com mensagens numeradas. */
-export const DIAGRAMA_COMUNICACAO = `%%{init:{'flowchart':{'nodeSpacing':80,'rankSpacing':140},'themeVariables':{'fontSize':'16px'}}}%%
+export const DIAGRAMA_COMUNICACAO = `%%{init:{'flowchart':{'nodeSpacing':130,'rankSpacing':260,'htmlLabels':true},'themeVariables':{'fontSize':'20px'}}}%%
 graph LR
   Origem(["●"])
   Jogador[":Jogador"]
@@ -225,18 +170,23 @@ graph LR
   Reino[":Reino"]
   Marcador[":MarcadorControle"]
 
-  LoopMao["↺ 1.2: mao.remove(carta)"]:::self
-  SelfReino["↺ 1.3.7: get_reino(cor)"]:::self
+  LoopMao["1.2* loop para cada carta na mão<br/>mao.remove(carta)<br/><i>↩ volta para si mesmo</i>"]:::nota
+  SelfReino["1.3.7: get_reino(cor)<br/><i>↩ volta para si mesmo</i>"]:::nota
 
-  classDef self fill:#f8f4ee,stroke:#C4B49A,stroke-dasharray:4 2,font-size:13px,color:#6B5B4A
+  classDef nota fill:#ede8df,stroke:#8a6a50,stroke-dasharray:3 2,font-size:16px,color:#3b2a1a
+
+  LoopMao ~~~ SelfReino
+
+  Jogo -->|"1.3.5: receber_pontos / 1.3.9: posicionar_marcador / 1.3.10: descartar_mao"| Jogador
 
   Origem -->|"1: jogar_bando(bando)"| Jogador
 
   Jogador -->|"1.1: validar_bando()"| Bando
 
-  Jogador -->|"1.2"| LoopMao
+  Jogador -.->|"1.2"| LoopMao
 
   Jogador -->|"1.3: processar_bando(bando)"| Jogo
+  Jogador -->|"1.4: proximo_turno()"| Jogo
 
   Jogo -->|"1.3.1: get_lider() / 1.3.4: calcular_pontuacao() / 1.3.6: get_cor_lider()"| Bando
 
@@ -244,17 +194,13 @@ graph LR
 
   Jogo -->|"1.3.3: aplicar_habilidade(j,g,b)"| Tribo
 
-  Jogo -->|"1.3.7"| SelfReino
+  Jogo -.->|"1.3.7"| SelfReino
 
   Jogo -->|"1.3.8: pode_adicionar_marcador(n)"| Reino
 
-  Jogo -->|"1.3.5: receber_pontos / 1.3.9: posicionar_marcador / 1.3.10: descartar_mao"| Jogador
-
-  Jogador -->|"1.3.9.1: <<create>>"| Marcador
+  Jogador -->|"1.3.9.1: &lt;&lt;create&gt;&gt;"| Marcador
 
   Jogador -->|"1.3.9.2: adicionar_marcador(m)"| Reino
-
-  Jogador -->|"1.4: proximo_turno()"| Jogo
 `;
 
 /** Diagrama de sequência detalhado — jogar bando (estilo UML de comunicação). */
@@ -325,6 +271,100 @@ export const DIAGRAMA_JOGAR_BANDO = `sequenceDiagram
   end
 
   deactivate Jogador
+`;
+
+/** Trecho de código TypeScript que ilustra o fluxo jogar-bando. */
+export const CODIGO_JOGAR_BANDO_TS = `\
+class Jogador {
+  jogarBando(bando: Bando, jogo: Jogo): void {
+    if (!bando.validarBando()) {
+      throw new Error("Bando inválido (RF14).");
+    }
+    for (const carta of bando.cartas) {
+      this.mao.splice(this.mao.indexOf(carta), 1);
+    }
+    jogo.processarBando(this, bando);
+  }
+
+  descartarMao(cartasVisiveis: CartasVisiveis): void {
+    cartasVisiveis.adicionarVarias(this.mao);
+    this.mao = [];
+  }
+
+  receberPontos(pontos: number): void {
+    this.pontosGloria += pontos;
+  }
+
+  posicionarMarcador(reino: Reino): MarcadorControle | null {
+    if (!this.marcadoresDisponiveis.length) return null;
+    const marcador = this.marcadoresDisponiveis.pop()!;
+    marcador.reino = reino;
+    reino.adicionarMarcador(marcador);
+    return marcador;
+  }
+}
+
+class Bando {
+  cartas: Carta[];
+  lider: Carta;
+  static readonly TABELA_PONTUACAO: Record<number, number> = { 1: 0, 2: 0, 3: 3, 4: 3 };
+  static readonly PONTUACAO_ACIMA_4 = 6;
+
+  validarBando(): boolean {
+    if (!this.cartas.length || !this.cartas.includes(this.lider)) return false;
+    return (
+      new Set(this.cartas.map(c => c.tribo.nome)).size === 1 ||
+      new Set(this.cartas.map(c => c.corReino)).size  === 1
+    );
+  }
+
+  calcularPontuacao(): number {
+    const n = this.calcularTamanho();
+    return n > 4 ? Bando.PONTUACAO_ACIMA_4 : (Bando.TABELA_PONTUACAO[n] ?? 0);
+  }
+
+  getLider(): Carta       { return this.lider; }
+  getCorLider(): CorReino { return this.lider.corReino; }
+}
+
+class Tribo {
+  aplicarHabilidade(jogador: Jogador, jogo: Jogo, bando: Bando): void {
+    this.habilidade.executar(jogador, jogo, bando);
+  }
+}
+
+class Reino {
+  podeAdicionarMarcador(tamanhoBando: number): boolean {
+    return tamanhoBando > this.contarMarcadores();
+  }
+
+  adicionarMarcador(marcador: MarcadorControle): void {
+    this.marcadores.push(marcador);
+  }
+}
+
+class Jogo {
+  processarBando(jogador: Jogador, bando: Bando): void {
+    const lider = bando.getLider();
+    const tribo = lider.getTribo();
+    tribo.aplicarHabilidade(jogador, this, bando);
+
+    const pontos = bando.calcularPontuacao();
+    jogador.receberPontos(pontos);
+
+    const reino = this.getReino(bando.getCorLider());
+    if (reino && reino.podeAdicionarMarcador(bando.calcularTamanho())) {
+      jogador.posicionarMarcador(reino);
+    }
+
+    jogador.descartarMao(this.cartasVisiveis);
+  }
+
+  proximoTurno(): void {
+    this._idxAtual = (this._idxAtual + 1) % this.jogadores.length;
+    this.turnoAtual++;
+  }
+}
 `;
 
 /** Trecho de código Python que ilustra o fluxo jogar-bando. */

@@ -53,3 +53,24 @@
   color: var(--color-text-muted);
   line-height: 1.5;
 }
+
+@media (max-width: 768px) {
+  .section {
+    padding: 0 var(--spacing-md) var(--spacing-3xl);
+  }
+
+  .tabs {
+    gap: var(--spacing-xs);
+  }
+
+  .tab {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-xs) var(--spacing-md);
+    flex: 1;
+    text-align: center;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

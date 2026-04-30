@@ -16,7 +16,7 @@ const en: StringsShape = {
   home: {
     titulo:     'EtNós',
     subtitulo:  'Digital implementation of the board game Ethnos',
-    badge:      'Software Project · UFF 6th Semester',
+    badge:      'Software Project · UFF',
     descricao:  'Object-oriented modeling and implementation of the Ethnos board game, with an interactive frontend and Python backend.',
     rf:         'Functional Requirements',
     rnf:        'Non-Functional Requirements',
@@ -51,7 +51,7 @@ const en: StringsShape = {
 
   equipe: {
     titulo:       'Our Team',
-    subtitulo:    'Software Project — UFF 6th Semester',
+    subtitulo:    'Software Project — UFF',
     disciplina:   'Software Engineering',
     universidade: 'Universidade Federal Fluminense',
     sobreTitulo:  'About the Work',
@@ -63,7 +63,7 @@ const en: StringsShape = {
     },
     valores: {
       disciplina:   'Software Project',
-      periodo:      '6th Semester — 2025',
+      periodo:      '2026.1',
       universidade: 'Universidade Federal Fluminense',
       projeto:      'EtNós — Ethnos Adaptation',
     },

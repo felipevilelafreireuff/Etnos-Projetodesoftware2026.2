@@ -28,3 +28,8 @@
   stroke: #000 !important;
   stroke-width: 1.5px !important;
 }
+
+.viewer svg .cardinality {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}

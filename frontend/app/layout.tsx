@@ -5,7 +5,7 @@ import { LocaleProvider } from '@/src/contexts/LocaleContext';
 import Header from '@/src/components/layout/Header';
 
 export const metadata: Metadata = {
-  title: 'EtNós — UFF 6º Período',
+  title: 'EtNós — UFF',
   description: 'Implementação digital do jogo de tabuleiro EtNós',
 };
 

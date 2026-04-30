@@ -14,7 +14,7 @@ const ptBR = {
   home: {
     titulo:       'EtNós',
     subtitulo:    'Implementação digital do jogo de tabuleiro Ethnos',
-    badge:        'Projeto de Software · UFF 6º Período',
+    badge:        'Projeto de Software · UFF',
     descricao:    'Modelagem e implementação orientada a objetos do jogo Ethnos, com frontend interativo e backend Python.',
     rf:           'Requisitos Funcionais',
     rnf:          'Requisitos Não Funcionais',
@@ -49,7 +49,7 @@ const ptBR = {
 
   equipe: {
     titulo:       'Nossa Equipe',
-    subtitulo:    'Projeto de Software — UFF 6º Período',
+    subtitulo:    'Projeto de Software — UFF',
     disciplina:   'Engenharia de Software',
     universidade: 'Universidade Federal Fluminense',
     sobreTitulo:  'Sobre o Trabalho',
@@ -61,7 +61,7 @@ const ptBR = {
     },
     valores: {
       disciplina:   'Projeto de Software',
-      periodo:      '6º Período — 2025',
+      periodo:      '2026.1',
       universidade: 'Universidade Federal Fluminense',
       projeto:      'EtNós — Adaptação do Ethnos',
     },
