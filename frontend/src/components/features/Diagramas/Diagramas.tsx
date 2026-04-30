@@ -5,31 +5,32 @@ import LoadingState from '@/src/components/shared/LoadingState';
 import MermaidViewer from '../DiagramaClasses/components/MermaidViewer/MermaidViewer';
 import styles from './Diagramas.module.css';
 
-const TITULOS: Record<string, string> = {
-  'jogar-bando': 'Diagramas (Jogar Bando)',
-  'comunicacao': 'Diagramas (Jogar Bando)',
-};
-
 export default function Diagramas() {
   const S = useStrings();
   const { tab, setTab, mermaid, loading, error, codigo } = useDiagramasScreen();
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>{TITULOS[tab]}</h1>
+      <h1 className={styles.title}>Diagramas</h1>
 
       <div className={styles.tabs}>
+        <button
+          className={`${styles.tab} ${tab === 'classes' ? styles.active : ''}`}
+          onClick={() => setTab('classes')}
+        >
+          Classes
+        </button>
         <button
           className={`${styles.tab} ${tab === 'jogar-bando' ? styles.active : ''}`}
           onClick={() => setTab('jogar-bando')}
         >
-          {S.diagramas.jogarBando}
+          Sequência — jogarBando()
         </button>
         <button
           className={`${styles.tab} ${tab === 'comunicacao' ? styles.active : ''}`}
           onClick={() => setTab('comunicacao')}
         >
-          {S.diagramas.comunicacao}
+          Comunicação — jogarBando()
         </button>
       </div>
 

@@ -12,11 +12,10 @@ export default function Header() {
   const S                      = useStrings();
 
   const NAV_ITEMS = [
-    { label: S.nav.home,            href: ROUTES.HOME             },
-    { label: S.nav.diagramaClasses, href: ROUTES.DIAGRAMA_CLASSES },
-    { label: S.nav.diagramas,       href: ROUTES.DIAGRAMAS        },
-    { label: S.nav.jogo,            href: ROUTES.JOGO             },
-    { label: S.nav.equipe,          href: ROUTES.EQUIPE           },
+    { label: S.nav.home,      href: ROUTES.HOME      },
+    { label: S.nav.diagramas, href: ROUTES.DIAGRAMAS },
+    { label: S.nav.jogo,      href: ROUTES.JOGO      },
+    { label: S.nav.equipe,    href: ROUTES.EQUIPE    },
   ];
 
   return (
