@@ -136,4 +136,10 @@ const ptBR = {
 } as const;
 
 export default ptBR;
-export type StringsShape = typeof ptBR;
+
+type DeepLoose<T> =
+  T extends string ? string :
+  T extends (...args: infer A) => infer R ? (...args: A) => R :
+  { [K in keyof T]: DeepLoose<T[K]> };
+
+export type StringsShape = DeepLoose<typeof ptBR>;
