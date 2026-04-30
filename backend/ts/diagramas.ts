@@ -177,7 +177,7 @@ graph LR
 
   LoopMao ~~~ SelfReino
 
-  Jogo -->|"1.3.5: receber_pontos / 1.3.9: posicionar_marcador / 1.3.10: descartar_mao"| Jogador
+  Jogo -->|"1.3.5: receber_pontos<br/>1.3.9: posicionar_marcador<br/>1.3.10: descartar_mao"| Jogador
 
   Origem -->|"1: jogar_bando(bando)"| Jogador
 
@@ -188,7 +188,7 @@ graph LR
   Jogador -->|"1.3: processar_bando(bando)"| Jogo
   Jogador -->|"1.4: proximo_turno()"| Jogo
 
-  Jogo -->|"1.3.1: get_lider() / 1.3.4: calcular_pontuacao() / 1.3.6: get_cor_lider()"| Bando
+  Jogo -->|"1.3.1: get_lider()<br/>1.3.4: calcular_pontuacao()<br/>1.3.6: get_cor_lider()"| Bando
 
   Jogo -->|"1.3.2: get_tribo()"| Carta
 

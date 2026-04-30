@@ -17,7 +17,6 @@ export default function Header() {
     { label: S.nav.home,      href: ROUTES.HOME      },
     { label: S.nav.diagramas, href: ROUTES.DIAGRAMAS },
     { label: S.nav.manual,    href: ROUTES.MANUAL    },
-    { label: S.nav.jogo,      href: ROUTES.JOGO      },
     { label: S.nav.equipe,    href: ROUTES.EQUIPE    },
   ];
 
