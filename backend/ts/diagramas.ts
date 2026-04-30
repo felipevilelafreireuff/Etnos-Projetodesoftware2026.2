@@ -214,8 +214,8 @@ export const DIAGRAMA_SEQUENCIA = `sequenceDiagram
 `;
 
 /** Diagrama de comunicação UML — fluxo jogar bando com mensagens numeradas. */
-export const DIAGRAMA_COMUNICACAO = `%%{init:{'flowchart':{'nodeSpacing':90,'rankSpacing':140},'themeVariables':{'fontSize':'17px','fontFamily':'monospace'}}}%%
-graph TB
+export const DIAGRAMA_COMUNICACAO = `%%{init:{'flowchart':{'nodeSpacing':80,'rankSpacing':140},'themeVariables':{'fontSize':'16px'}}}%%
+graph LR
   Origem(["●"])
   Jogador[":Jogador"]
   Jogo[":Jogo"]
@@ -225,25 +225,30 @@ graph TB
   Reino[":Reino"]
   Marcador[":MarcadorControle"]
 
-  classDef obj fill:#f0f4ff,stroke:#4a6fa5,stroke-width:2px,font-size:16px
-  class Jogador,Jogo,Bando,Carta,Tribo,Reino,Marcador obj
-
   Origem -->|"1: jogar_bando(bando)"| Jogador
+
   Jogador -->|"1.1: validar_bando()"| Bando
-  Jogador -->|"1.2: [loop] mao.remove(carta)"| Jogador
+
+  Jogador -.->|"1.2: loop — mao.remove(carta)"| Jogador
+
   Jogador -->|"1.3: processar_bando(bando)"| Jogo
-  Jogo -->|"1.3.1: get_lider()"| Bando
+
+  Jogo -->|"1.3.1: get_lider() / 1.3.4: calcular_pontuacao() / 1.3.6: get_cor_lider()"| Bando
+
   Jogo -->|"1.3.2: get_tribo()"| Carta
+
   Jogo -->|"1.3.3: aplicar_habilidade(j,g,b)"| Tribo
-  Jogo -->|"1.3.4: calcular_pontuacao()"| Bando
-  Jogo -->|"1.3.5: receber_pontos(pontos)"| Jogador
-  Jogo -->|"1.3.6: get_cor_lider()"| Bando
-  Jogo -->|"1.3.7: get_reino(cor)"| Jogo
+
+  Jogo -.->|"1.3.7: get_reino(cor)"| Jogo
+
   Jogo -->|"1.3.8: pode_adicionar_marcador(n)"| Reino
-  Jogo -->|"1.3.9: [opt] posicionar_marcador(r)"| Jogador
+
+  Jogo -->|"1.3.5: receber_pontos / 1.3.9: posicionar_marcador / 1.3.10: descartar_mao"| Jogador
+
   Jogador -->|"1.3.9.1: <<create>>"| Marcador
+
   Jogador -->|"1.3.9.2: adicionar_marcador(m)"| Reino
-  Jogo -->|"1.3.10: descartar_mao(visiveis)"| Jogador
+
   Jogador -->|"1.4: proximo_turno()"| Jogo
 `;
 
