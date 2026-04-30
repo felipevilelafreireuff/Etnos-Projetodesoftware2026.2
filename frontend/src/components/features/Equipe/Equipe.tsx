@@ -3,12 +3,12 @@ import { useStrings } from '@/src/contexts/LocaleContext';
 import styles from './Equipe.module.css';
 
 const MEMBROS = [
-  { nome: 'Felipe Freire',                      papel: 'Desenvolvimento & Arquitetura',  iniciais: 'FF' },
-  { nome: 'Leon Stevans',                       papel: 'Desenvolvimento Backend',         iniciais: 'LS' },
-  { nome: 'Carlos Henrique Nascimento',         papel: 'Modelagem & Diagramas',          iniciais: 'CH' },
-  { nome: 'Luiz Eduardo Ribeiro Abreu Miranda', papel: 'Requisitos & Documentação',      iniciais: 'LE' },
-  { nome: 'Ricardo França',                     papel: 'Desenvolvimento Frontend',        iniciais: 'RF' },
-  { nome: 'Jonathan Melo',                      papel: 'Testes & Qualidade',             iniciais: 'JM' },
+  { nome: 'Felipe Freire',                      iniciais: 'FF' },
+  { nome: 'Leon Stevans',                       iniciais: 'LS' },
+  { nome: 'Carlos Henrique Nascimento',         iniciais: 'CH' },
+  { nome: 'Luiz Eduardo Ribeiro Abreu Miranda', iniciais: 'LE' },
+  { nome: 'Ricardo França',                     iniciais: 'RF' },
+  { nome: 'Jonathan Melo',                      iniciais: 'JM' },
 ];
 
 const CORES = [
@@ -41,7 +41,6 @@ export default function Equipe() {
             </div>
             <div className={styles.info}>
               <h3 className={styles.nome}>{membro.nome}</h3>
-              <p className={styles.papel}>{membro.papel}</p>
             </div>
             <div className={styles.barra} style={{ background: CORES[i] }} />
           </div>
