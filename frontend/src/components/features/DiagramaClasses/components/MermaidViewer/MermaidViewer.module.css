@@ -12,9 +12,9 @@
 }
 
 .viewer svg {
-  max-width: 100%;
   height: auto;
   min-height: 480px;
+  min-width: 600px;
 }
 
 .viewer svg line[class*="actor-line"] {

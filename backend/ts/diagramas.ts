@@ -214,7 +214,7 @@ export const DIAGRAMA_SEQUENCIA = `sequenceDiagram
 `;
 
 /** Diagrama de comunicação UML — fluxo jogar bando com mensagens numeradas. */
-export const DIAGRAMA_COMUNICACAO = `%%{init:{'flowchart':{'nodeSpacing':60,'rankSpacing':90}}}%%
+export const DIAGRAMA_COMUNICACAO = `%%{init:{'flowchart':{'nodeSpacing':90,'rankSpacing':140},'themeVariables':{'fontSize':'17px','fontFamily':'monospace'}}}%%
 graph TB
   Origem(["●"])
   Jogador[":Jogador"]
@@ -225,7 +225,7 @@ graph TB
   Reino[":Reino"]
   Marcador[":MarcadorControle"]
 
-  classDef obj fill:#f0f4ff,stroke:#4a6fa5,stroke-width:2px,padding:10px,font-size:15px
+  classDef obj fill:#f0f4ff,stroke:#4a6fa5,stroke-width:2px,font-size:16px
   class Jogador,Jogo,Bando,Carta,Tribo,Reino,Marcador obj
 
   Origem -->|"1: jogar_bando(bando)"| Jogador
