@@ -1,0 +1,48 @@
+.container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+}
+
+.titulo {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+  font-weight: 500;
+}
+
+.mesa {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  min-height: 120px;
+}
+
+.divisor {
+  width: 1px;
+  height: 110px;
+  background: var(--color-border);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.cartas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  align-items: center;
+  flex: 1;
+}
+
+.cartaSlot {
+  position: relative;
+  cursor: pointer;
+  transition: z-index 0s;
+}
+
+.vazia {
+  color: var(--color-text-faint);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}

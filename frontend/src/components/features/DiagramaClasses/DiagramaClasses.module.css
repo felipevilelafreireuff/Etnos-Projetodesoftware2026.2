@@ -1,0 +1,3 @@
+.page { padding: var(--spacing-3xl); max-width: 1400px; margin: 0 auto; }
+.title { margin-bottom: var(--spacing-2xl); }
+.error { color: var(--color-error); }

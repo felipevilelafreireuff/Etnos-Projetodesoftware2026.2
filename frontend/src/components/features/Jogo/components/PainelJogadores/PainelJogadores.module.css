@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.jogador {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  opacity: 0.7;
+}
+
+/* Jogador ativo — destaque total */
+.ativo {
+  opacity: 1;
+  background: var(--color-surface-high);
+  padding: var(--spacing-md);
+}
+
+.avatar {
+  width: 34px; height: 34px;
+  border-radius: var(--radius-full);
+  border: 2px solid;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: width 0.2s, height 0.2s;
+}
+
+.ativo .avatar {
+  width: 40px;
+  height: 40px;
+  font-size: var(--font-size-base);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.nomeRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.nome {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ativo .nome {
+  font-size: var(--font-size-base);
+  font-family: var(--font-heading);
+  color: var(--color-gold);
+}
+
+.badge {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--color-gold);
+  color: var(--color-bg);
+  border-radius: var(--radius-full);
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+.sub {
+  font-size: 10px;
+  color: var(--color-text-faint);
+  margin-top: 2px;
+}
+
+.pontos {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-gold);
+  white-space: nowrap;
+}
+
+.ativo .pontos {
+  font-size: var(--font-size-lg);
+}

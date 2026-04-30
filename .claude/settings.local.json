@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"C:/Users/felip_x6n9d9e/OneDrive/Documentos/FELIPE/UFF/6_PERIODO/PROJETODESOFTWARE/src/ethnos\")",
+      "Bash(mkdir -p \"C:/Users/felip_x6n9d9e/OneDrive/Documentos/FELIPE/UFF/6_PERIODO/PROJETODESOFTWARE/docs\")",
+      "Bash(python -c \"from src.ethnos import Jogo, FabricaJogo; j = Jogo.criar_partida\\(['Alice','Bob','Carol','Dave']\\); print\\(j\\); j.iniciar_era\\(\\); print\\(j\\); print\\('Jogador atual:', j.jogador_atual\\(\\)\\)\")",
+      "Bash(py --version)",
+      "Bash(where python3 *)",
+      "Bash(where py *)",
+      "Bash(py -c \"from src.ethnos import Jogo; j = Jogo.criar_partida\\(['Alice','Bob','Carol','Dave']\\); print\\(j\\); j.iniciar_era\\(\\); print\\(j\\); print\\('Jogador atual:', j.jogador_atual\\(\\)\\)\")",
+      "WebSearch",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git rm *)",
+      "Bash(python -c \"from backend.ethnos.jogo import Jogo; j = Jogo.criar_partida\\(['A','B','C','D']\\); print\\(j\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(cp -r backend/ethnos backend/python/ethnos)",
+      "Bash(cp -r backend/routers backend/python/routers)",
+      "Bash(npm install *)",
+      "Bash(git push *)",
+      "Bash(git reset *)",
+      "Bash(git restore *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+.carta {
+  position: relative;
+  width: 88px;
+  height: 128px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  will-change: transform;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.carta:hover {
+  box-shadow: var(--shadow-gold), 0 12px 32px rgba(0,0,0,0.20);
+  border-color: var(--color-gold-light);
+}
+
+/* Sheen dinâmico que segue o mouse */
+.sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-card);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Faixa colorida do reino no topo da carta */
+.faixaReino {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--reino-color, var(--color-border));
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+.selecionada {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-gold), 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.lider {
+  border-color: var(--color-gold-light);
+  box-shadow: 0 0 20px rgba(226,161,69,0.55), 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.dragao {
+  background: linear-gradient(160deg, #1a0808 0%, #2d0a0a 100%);
+  border-color: #8B2020;
+}
+
+.dragao:hover { box-shadow: 0 0 20px rgba(184,64,53,0.55); }
+
+.pequena { width: 68px; height: 100px; }
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: var(--spacing-xs);
+  position: relative;
+  z-index: 3;
+}
+
+.tribo {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-parchment);
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+.liderBadge { font-size: 11px; }
+
+.bottom {
+  text-align: right;
+  position: relative;
+  z-index: 3;
+}
+
+.reino {
+  font-size: 8px;
+  color: var(--reino-color, var(--color-text-faint));
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+

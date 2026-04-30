@@ -1,0 +1,187 @@
+.container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-2xl);
+}
+
+.titulo {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.fan {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 155px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.cartaSlot {
+  transform: rotate(var(--fan-angle)) translateY(var(--fan-y));
+  transform-origin: bottom center;
+  margin: 0 -10px;
+  position: relative;
+  cursor: pointer;
+  transition: z-index 0s;
+}
+
+.vazia {
+  color: var(--color-text-faint);
+  font-size: var(--font-size-sm);
+  align-self: center;
+  font-style: italic;
+}
+
+/* ── Botão Líder fora do card, abaixo de cada carta selecionada ── */
+.btnLiderSlot {
+  display: block;
+  margin-top: 6px;
+  width: 100%;
+  padding: 4px 0;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface-high);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.btnLiderSlot:hover {
+  border-color: var(--color-gold-light);
+  color: var(--color-gold-light);
+}
+
+.btnLiderAtivo {
+  border-color: var(--color-gold-light);
+  background: color-mix(in srgb, var(--color-gold-light) 20%, var(--color-surface));
+  color: var(--color-gold-light);
+}
+
+/* ── Zona de líder abaixo do leque ── */
+.liderZona {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.liderLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.liderOpcoes {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.liderPill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px 4px 8px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface-high);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-body);
+  color: var(--color-parchment);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+.liderPill:hover {
+  border-color: var(--color-gold-light);
+}
+
+.liderPillAtivo {
+  border-color: var(--color-gold-light);
+  background: color-mix(in srgb, var(--color-gold-light) 18%, var(--color-surface));
+  color: var(--color-gold-light);
+  font-weight: 600;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-gold-light) 30%, transparent);
+}
+
+.liderDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Seletor de líder ── */
+.liderZona {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.liderLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.liderOpcoes {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.liderBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px 5px 6px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface-high);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-body);
+  color: var(--color-parchment);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.liderBtn:hover {
+  border-color: var(--color-gold-light);
+  background: color-mix(in srgb, var(--color-gold) 10%, var(--color-surface-high));
+}
+
+.liderBtn.ativo {
+  border-color: var(--color-gold-light);
+  background: color-mix(in srgb, var(--color-gold-light) 18%, var(--color-surface));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-gold-light) 35%, transparent);
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.liderCorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}

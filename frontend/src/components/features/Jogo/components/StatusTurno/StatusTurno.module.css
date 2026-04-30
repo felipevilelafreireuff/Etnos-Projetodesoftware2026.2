@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-xl);
+  flex-wrap: wrap;
+  backdrop-filter: blur(4px);
+}
+
+.era {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  color: var(--color-gold);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.jogador {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  border: 2px solid;
+  border-radius: var(--radius-full);
+  padding: 5px var(--spacing-xl);
+  font-size: var(--font-size-base);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: box-shadow 0.3s;
+}
+
+.dot {
+  width: 8px; height: 8px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+}
+
+.dragoes {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  transition: color 0.3s;
+}
+
+.draoAlert { color: var(--color-error); font-weight: 700; }
+
+.alerta {
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+  font-weight: 700;
+  background: rgba(184,64,53,0.12);
+  border-radius: var(--radius-full);
+  padding: 2px var(--spacing-md);
+}
+
+.vencedor {
+  font-size: var(--font-size-sm);
+  color: var(--color-gold);
+  font-weight: 700;
+  background: rgba(192,94,66,0.12);
+  border-radius: var(--radius-full);
+  padding: 2px var(--spacing-md);
+}

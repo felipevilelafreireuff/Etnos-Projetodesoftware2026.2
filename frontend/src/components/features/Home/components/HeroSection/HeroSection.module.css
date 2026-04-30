@@ -1,0 +1,83 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  overflow: hidden;
+  text-align: center;
+  padding: var(--spacing-5xl) var(--spacing-3xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.aurora {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 50%, rgba(232,196,74,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 70% at 85% 40%, rgba(142,68,173,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 40% at 50% 110%, rgba(41,128,185,0.08) 0%, transparent 45%);
+  animation: aurora 10s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes aurora {
+  0%   { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.04); }
+}
+
+.content { position: relative; z-index: 1; max-width: 700px; }
+
+.badge {
+  display: inline-block;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 4px var(--spacing-lg);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-lg);
+}
+
+.title {
+  font-size: clamp(48px, 8vw, 80px);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 0 0 40px rgba(232,196,74,0.35);
+  line-height: 1;
+}
+
+.subtitle {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.subtitle em { color: var(--color-gold); font-style: normal; }
+
+.desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-faint);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
+.chip {
+  background: var(--color-surface-high);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 4px var(--spacing-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-gold);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
