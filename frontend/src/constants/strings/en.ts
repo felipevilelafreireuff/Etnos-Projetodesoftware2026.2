@@ -3,6 +3,7 @@ import type { StringsShape } from './pt-BR';
 const en: StringsShape = {
   nav: {
     home:            'Home',
+    manual:          'Manual',
     diagramaClasses: 'Class Diagram',
     diagramas:       'Diagrams',
     jogo:            'Play',

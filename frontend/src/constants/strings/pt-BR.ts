@@ -1,6 +1,7 @@
 const ptBR = {
   nav: {
     home:            'Início',
+    manual:          'Manual',
     diagramaClasses: 'Diagrama de Classes',
     diagramas:       'Diagramas',
     jogo:            'Jogar',

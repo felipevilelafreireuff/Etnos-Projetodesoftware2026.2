@@ -1,0 +1,520 @@
+/* ── Layout ── */
+.page { min-height: 100vh; }
+
+.conteudo {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-5xl) var(--spacing-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5xl);
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: var(--spacing-5xl) var(--spacing-3xl);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.heroAurora {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 20% 50%, rgba(232,196,74,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 80% 40%, rgba(142,68,173,0.10) 0%, transparent 55%);
+  animation: aurora 10s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes aurora {
+  0%   { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.05); }
+}
+
+.heroContent { position: relative; z-index: 1; }
+
+.heroBadge {
+  display: inline-block;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 4px var(--spacing-lg);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-lg);
+}
+
+.heroTitulo {
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 6vw, 60px);
+  color: var(--color-parchment);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 0 30px rgba(232,196,74,0.25);
+}
+
+.heroSub {
+  font-size: var(--font-size-lg);
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+
+.heroDesc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+}
+
+/* ── Seção ── */
+.secao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.secaoHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.icone { font-size: 28px; line-height: 1; }
+
+.secaoTitulo {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  color: var(--color-parchment);
+  letter-spacing: 0.03em;
+}
+
+.secaoConteudo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.secaoConteudo p { color: var(--color-text-muted); }
+.secaoConteudo strong { color: var(--color-parchment); }
+
+.paragrafo { line-height: 1.75; }
+
+/* ── Destaques ── */
+.destaquesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 600px) {
+  .destaquesGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.destaqueCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.destaqueNum {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.destaqueLbl {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Lista ── */
+.lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: 0;
+}
+
+.lista li {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* ── Reinos ── */
+.reinosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 500px) {
+  .reinosGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.reinoCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.reinoDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.reinoNome {
+  font-weight: 600;
+  color: var(--color-parchment);
+  font-size: var(--font-size-sm);
+}
+
+/* ── Tribos ── */
+.tribosGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 500px) {
+  .tribosGrid { grid-template-columns: 1fr; }
+}
+
+.triboCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.triboCard.dragao {
+  border-color: var(--color-gold);
+  background: var(--color-surface-high);
+  grid-column: 1 / -1;
+}
+
+.triboNome {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  color: var(--color-parchment);
+}
+
+.dragao .triboNome { color: var(--color-gold); }
+
+.triboDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ── Ações ── */
+.acoesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+@media (max-width: 600px) {
+  .acoesGrid { grid-template-columns: 1fr; }
+}
+
+.acaoCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.acaoTitulo {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  color: var(--color-gold);
+}
+
+.acaoDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.acaoDetalhe {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-faint);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-md);
+  margin-top: auto;
+}
+
+/* ── Validação ── */
+.validacaoGrid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+@media (max-width: 600px) {
+  .validacaoGrid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.validacaoCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+}
+
+.validacaoIcone { font-size: 24px; }
+
+.validacaoCard h4 {
+  font-family: var(--font-heading);
+  color: var(--color-parchment);
+  font-size: var(--font-size-base);
+}
+
+.validacaoCard p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.validacaoOu {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-gold);
+  text-align: center;
+}
+
+.aviso {
+  background: rgba(192,94,66,0.08);
+  border: 1px solid rgba(192,94,66,0.25);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ── Tabela ── */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.tabela th {
+  background: var(--color-surface-high);
+  padding: var(--spacing-md) var(--spacing-xl);
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabela td {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: var(--font-size-base);
+  color: var(--color-parchment);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabela tr:last-child td { border-bottom: none; }
+
+.pts {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg) !important;
+  font-weight: 700;
+  color: var(--color-gold) !important;
+}
+
+.dica {
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-gold-light);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* ── Controle ── */
+.regraBox {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.regraBoxTitulo {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  color: var(--color-parchment);
+}
+
+.regraCode {
+  display: block;
+  background: var(--color-surface-high);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-family: 'Courier New', monospace;
+  font-size: var(--font-size-sm);
+  color: var(--color-gold);
+  margin-top: var(--spacing-sm);
+}
+
+/* ── Dragões ── */
+.dragaoBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.dragaoItem {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+}
+
+.dragaoItem span:first-child { font-size: 28px; flex-shrink: 0; }
+
+.dragaoItem strong {
+  display: block;
+  color: var(--color-parchment);
+  margin-bottom: var(--spacing-xs);
+}
+
+.dragaoItem p { font-size: var(--font-size-sm); line-height: 1.6; }
+
+/* ── Passos ── */
+.passosList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.regra {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.regraNum {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.regraTexto { font-size: var(--font-size-sm); line-height: 1.65; padding-top: 6px; }
+
+/* ── Vitória ── */
+.empateBox {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.dicaFinal {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+}
+
+.dicaFinal h4 {
+  font-family: var(--font-heading);
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-base);
+}
+
+.dicaFinal ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.dicaFinal li {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  padding-left: var(--spacing-xl);
+  position: relative;
+  line-height: 1.6;
+}
+
+.dicaFinal li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 700;
+}
