@@ -55,7 +55,7 @@ export default function Manual() {
         <div className={styles.heroContent}>
           <span className={styles.heroBadge}>Guia Completo</span>
           <h1 className={styles.heroTitulo}>Manual do Jogo</h1>
-          <p className={styles.heroSub}>EtNós — Adaptação digital de Ethnos</p>
+          <p className={styles.heroSub}>Ethnos — Adaptação digital de Ethnos</p>
           <p className={styles.heroDesc}>
             Para 4 a 6 jogadores · 3 eras por partida · Vence quem acumular mais pontos de glória
           </p>
@@ -67,7 +67,7 @@ export default function Manual() {
         {/* ── Visão Geral ── */}
         <Secao id="visao-geral" icone="🎲" titulo="Visão Geral">
           <p>
-            EtNós é um jogo de construção de bandos onde cada jogador recruta aliados de diferentes
+            Ethnos é um jogo de construção de bandos onde cada jogador recruta aliados de diferentes
             tribos e reinos para disputar o controle dos 6 reinos do tabuleiro.
             Ao longo de <strong>3 eras</strong>, você acumula pontos de glória jogando bandos e
             posicionando marcadores estrategicamente.

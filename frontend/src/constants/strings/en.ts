@@ -14,7 +14,7 @@ const en: StringsShape = {
   },
 
   home: {
-    titulo:     'EtNós',
+    titulo:     'Ethnos',
     subtitulo:  'Digital implementation of the board game Ethnos',
     badge:      'Software Project · UFF',
     descricao:  'Object-oriented modeling and implementation of the Ethnos board game, with an interactive frontend and Python backend.',
@@ -65,7 +65,7 @@ const en: StringsShape = {
       disciplina:   'Software Project',
       periodo:      '2026.1',
       universidade: 'Universidade Federal Fluminense',
-      projeto:      'EtNós — Ethnos Adaptation',
+      projeto:      'Ethnos — Ethnos Adaptation',
     },
   },
 
