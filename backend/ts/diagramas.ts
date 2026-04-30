@@ -225,11 +225,16 @@ graph LR
   Reino[":Reino"]
   Marcador[":MarcadorControle"]
 
+  LoopMao["↺ 1.2: mao.remove(carta)"]:::self
+  SelfReino["↺ 1.3.7: get_reino(cor)"]:::self
+
+  classDef self fill:#f8f4ee,stroke:#C4B49A,stroke-dasharray:4 2,font-size:13px,color:#6B5B4A
+
   Origem -->|"1: jogar_bando(bando)"| Jogador
 
   Jogador -->|"1.1: validar_bando()"| Bando
 
-  Jogador -.->|"1.2: loop — mao.remove(carta)"| Jogador
+  Jogador -->|"1.2"| LoopMao
 
   Jogador -->|"1.3: processar_bando(bando)"| Jogo
 
@@ -239,7 +244,7 @@ graph LR
 
   Jogo -->|"1.3.3: aplicar_habilidade(j,g,b)"| Tribo
 
-  Jogo -.->|"1.3.7: get_reino(cor)"| Jogo
+  Jogo -->|"1.3.7"| SelfReino
 
   Jogo -->|"1.3.8: pode_adicionar_marcador(n)"| Reino
 
