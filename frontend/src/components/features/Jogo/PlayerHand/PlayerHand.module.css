@@ -1,0 +1,57 @@
+.handContainer {
+  position: fixed;
+  bottom: 0;
+  left: 256px; /* Apos o RecruitmentPool */
+  right: 256px; /* Antes do ActionPanel */
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: var(--spacing-lg);
+  pointer-events: none; /* Deixa clicar no mapa atras */
+  z-index: 50;
+}
+
+.handLabel {
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color-parchment);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-sm);
+  pointer-events: auto;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: auto;
+  transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* gap negativo faz elas se sobreporem */
+  gap: -60px;
+}
+
+.cardsExpanded {
+  gap: -20px;
+}
+
+.cardWrapper {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.cardWrapper:hover {
+  transform: translateY(-20px);
+  z-index: 100 !important;
+}
+
+.emptyHand {
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding: var(--spacing-lg);
+  background: rgba(0,0,0,0.4);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}

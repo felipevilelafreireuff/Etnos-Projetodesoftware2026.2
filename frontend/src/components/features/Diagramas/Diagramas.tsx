@@ -11,26 +11,26 @@ export default function Diagramas() {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>Diagramas</h1>
+      <h1 className={styles.title}>{S.diagramas.titulo}</h1>
 
       <div className={styles.tabs}>
         <button
           className={`${styles.tab} ${tab === 'classes' ? styles.active : ''}`}
           onClick={() => setTab('classes')}
         >
-          Classes
+          {S.diagramas.tabClasses}
         </button>
         <button
           className={`${styles.tab} ${tab === 'jogar-bando' ? styles.active : ''}`}
           onClick={() => setTab('jogar-bando')}
         >
-          Sequência — jogarBando()
+          {S.diagramas.tabSequencia}
         </button>
         <button
           className={`${styles.tab} ${tab === 'comunicacao' ? styles.active : ''}`}
           onClick={() => setTab('comunicacao')}
         >
-          Comunicação — jogarBando()
+          {S.diagramas.tabComunicacao}
         </button>
       </div>
 
@@ -40,7 +40,7 @@ export default function Diagramas() {
       {(tab === 'jogar-bando' || tab === 'comunicacao') && codigo && (
         <div className={styles.codigoBloco}>
           <div className={styles.codigoHeader}>
-            <h3 className={styles.codigoTitulo}>Implementação</h3>
+            <h3 className={styles.codigoTitulo}>{S.diagramas.implementacao}</h3>
             <div className={styles.langToggle}>
               <button
                 className={`${styles.langBtn} ${lang === 'python' ? styles.langActive : ''}`}

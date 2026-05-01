@@ -70,11 +70,16 @@ const en: StringsShape = {
   },
 
   diagramas: {
-    classes:     'Class Diagram',
-    sequencia:   'Sequence Diagram',
-    comunicacao: 'Communication Diagram',
-    jogarBando:  'Diagramas (Jogar Bando)',
-    carregando:  'Loading diagram...',
+    titulo:          'Diagrams',
+    classes:         'Class Diagram',
+    sequencia:       'Sequence Diagram',
+    comunicacao:     'Communication Diagram',
+    jogarBando:      'Diagramas (Jogar Bando)',
+    carregando:      'Loading diagram...',
+    tabClasses:      'Classes',
+    tabSequencia:    'Sequence — jogarBando()',
+    tabComunicacao:  'Communication — jogarBando()',
+    implementacao:   'Implementation',
   },
 
   jogo: {

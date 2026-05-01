@@ -1,0 +1,115 @@
+.container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #0d1e2e 0%, #040c14 100%);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Vinheta nas bordas do container */
+.container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.7));
+}
+
+/* ── Território base ── */
+.reinoFill {
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.reinoTextura {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.reinoBorda {
+  pointer-events: none;
+}
+
+.reinoBordaInterna {
+  pointer-events: none;
+}
+
+/* ── Grupo interativo ── */
+.reinoGroup {
+  cursor: pointer;
+}
+
+.reinoGroup:hover .reinoFill {
+  filter: brightness(1.35) saturate(1.2);
+}
+
+.reinoGroup:hover .reinoBorda {
+  stroke: rgba(255,220,100,0.50) !important;
+  stroke-width: 3 !important;
+}
+
+/* ── Ícone de terreno ── */
+.terrainIcon {
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+  font-size: 26px;
+}
+
+/* ── Nome do reino ── */
+.reinoNome {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  fill: #f0e8d8;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.9));
+}
+
+/* ── Fichas de Glória ── */
+.fichaGloria {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+  transition: filter 0.2s ease;
+}
+
+.reinoGroup:hover .fichaGloria {
+  filter: drop-shadow(0 0 8px rgba(212,175,55,0.8));
+}
+
+.fichaValor {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  fill: #1a1200;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+/* ── Marcadores ── */
+.marcador {
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+}
+
+.marcador:hover {
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+  transform: scale(1.15);
+}
+
+.marcadorInicial {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  fill: rgba(255,255,255,0.95);
+  pointer-events: none;
+  text-anchor: middle;
+}

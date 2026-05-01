@@ -1,1 +1,1 @@
-export { default } from './Jogo';
+export { default as JogoScreen } from './JogoScreen';

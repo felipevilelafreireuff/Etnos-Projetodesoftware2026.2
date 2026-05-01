@@ -68,11 +68,16 @@ const ptBR = {
   },
 
   diagramas: {
-    classes:     'Diagrama de Classes',
-    sequencia:   'Diagrama de Sequência',
-    comunicacao: 'Diagrama de Comunicação',
-    jogarBando:  'Diagramas (Jogar Bando)',
-    carregando:  'Carregando diagrama...',
+    titulo:          'Diagramas',
+    classes:         'Diagrama de Classes',
+    sequencia:       'Diagrama de Sequência',
+    comunicacao:     'Diagrama de Comunicação',
+    jogarBando:      'Diagramas (Jogar Bando)',
+    carregando:      'Carregando diagrama...',
+    tabClasses:      'Classes',
+    tabSequencia:    'Sequência — jogarBando()',
+    tabComunicacao:  'Comunicação — jogarBando()',
+    implementacao:   'Implementação',
   },
 
   jogo: {

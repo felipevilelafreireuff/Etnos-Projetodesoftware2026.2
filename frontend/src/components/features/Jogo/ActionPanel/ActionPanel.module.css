@@ -1,0 +1,121 @@
+.panel {
+  width: 256px;
+  background-color: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  height: 100%;
+}
+
+.title {
+  font-family: var(--font-heading);
+  color: var(--color-gold);
+  margin: 0;
+  font-size: var(--font-size-lg);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-sm);
+}
+
+.mensagem {
+  background-color: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.btnPrimary, .btnSecondary, .btnOutline {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: var(--font-size-sm);
+}
+
+.btnPrimary {
+  background-color: var(--color-gold);
+  color: #000;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background-color: var(--color-gold-light);
+}
+
+.btnSecondary {
+  background-color: var(--color-surface-high);
+  color: var(--color-parchment);
+  border: 1px solid var(--color-border);
+}
+
+.btnSecondary:hover:not(:disabled) {
+  border-color: var(--color-gold);
+}
+
+.btnOutline {
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px dashed var(--color-border);
+}
+
+.btnOutline:hover:not(:disabled) {
+  color: var(--color-parchment);
+  border-color: var(--color-text-muted);
+}
+
+.btnPrimary:disabled, .btnSecondary:disabled, .btnOutline:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.logContainer {
+  margin-top: auto;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.logTitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.logList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 4px;
+}
+
+.logEntry {
+  font-size: 12px;
+  color: var(--color-text-faint);
+  background: var(--color-bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.logEmpty {
+  font-size: 12px;
+  color: var(--color-text-faint);
+  font-style: italic;
+}

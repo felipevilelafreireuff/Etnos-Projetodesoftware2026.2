@@ -1,0 +1,87 @@
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 96px;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-lg);
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.playersContainer {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex: 1;
+  overflow-x: auto;
+  align-items: center;
+}
+
+.playerCard {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 120px;
+  transition: all 0.2s ease;
+}
+
+.ativo {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-gold, 0 0 8px var(--color-gold));
+  background-color: var(--color-surface-high);
+}
+
+.playerName {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playerStats {
+  display: flex;
+  gap: var(--spacing-md);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.centerInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-left: auto;
+  padding-left: var(--spacing-xl);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  color: var(--color-gold);
+}
+
+.pill {
+  background-color: var(--color-surface-high);
+  border: 1px solid var(--color-border);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: var(--font-size-sm);
+  color: var(--color-parchment);
+  white-space: nowrap;
+}
+
+.pillDanger {
+  border-color: #ff4d4d;
+  color: #ff4d4d;
+}
