@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { useDiagramasScreen } from '@/src/hooks/diagramas/useDiagramasScreen';
 import { useStrings } from '@/src/contexts/LocaleContext';
 import LoadingState from '@/src/components/shared/LoadingState';
@@ -15,6 +16,17 @@ export default function Diagramas() {
     loading, error, codigo,
     easterEgg, handleTitleClick,
   } = useDiagramasScreen();
+
+  const [aberta, setAberta] = useState(false);
+
+  useEffect(() => {
+    if (!aberta) return;
+    const fechar = (e: KeyboardEvent) => { if (e.key === 'Escape') setAberta(false); };
+    window.addEventListener('keydown', fechar);
+    return () => window.removeEventListener('keydown', fechar);
+  }, [aberta]);
+
+  useEffect(() => { setAberta(false); }, [tab]);
 
   return (
     <div className={styles.page}>
@@ -47,14 +59,26 @@ export default function Diagramas() {
       {error   && <p className={styles.error}>{S.errors.network}</p>}
 
       {!easterEgg && (
-        <div
-          className={styles.imagemContainer}
-          onClick={() => window.open(imagem, '_blank')}
-          title="Clique para abrir em tela cheia"
-        >
-          <Image src={imagem} alt={tab} fill className={styles.imagem} unoptimized />
-          <div className={styles.zoomHint}>🔍</div>
-        </div>
+        <>
+          <div
+            className={styles.imagemContainer}
+            onClick={() => setAberta(true)}
+            title="Clique para ampliar"
+          >
+            <Image src={imagem} alt={tab} fill className={styles.imagem} unoptimized />
+            <div className={styles.zoomHint}>🔍</div>
+          </div>
+
+          {aberta && (
+            <div className={styles.modal} onClick={() => setAberta(false)}>
+              <button className={styles.modalFechar} onClick={() => setAberta(false)}>✕</button>
+              <div className={styles.modalConteudo} onClick={e => e.stopPropagation()}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={imagem} alt={tab} className={styles.modalImg} />
+              </div>
+            </div>
+          )}
+        </>
       )}
 
       {easterEgg && mermaid && <MermaidViewer chart={mermaid} />}
