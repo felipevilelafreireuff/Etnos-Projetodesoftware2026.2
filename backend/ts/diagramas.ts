@@ -372,7 +372,7 @@ export const CODIGO_JOGAR_BANDO = `\
 class Jogador:
     def jogar_bando(self, bando: Bando, jogo: Jogo) -> None:
         if not bando.validar_bando():
-            raise ValueError("Bando inválido (RF14).")
+            raise ValueError("Bando inválido.")
         for carta in bando.cartas:
             self.mao.remove(carta)
         jogo.processar_bando(self, bando)

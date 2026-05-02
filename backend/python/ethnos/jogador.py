@@ -46,7 +46,7 @@ class Jogador:
     # RF14 — ação do jogador: valida, remove da mão e delega ao Jogo
     def jogar_bando(self, bando: "Bando", jogo: "Jogo") -> None:
         if not bando.validar_bando():
-            raise ValueError("Bando inválido: cartas devem ser da mesma tribo ou mesma região (RF14).")
+            raise ValueError("Bando inválido: cartas devem ser da mesma tribo ou mesma região.")
         for carta in bando.cartas:
             self.mao.remove(carta)
         jogo.processar_bando(self, bando)
