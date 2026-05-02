@@ -30,6 +30,27 @@
   object-fit: contain;
 }
 
+.tooltip {
+  position: absolute;
+  bottom: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.imagemContainer:hover .tooltip {
+  opacity: 1;
+}
+
 
 /* ── Modal ── */
 

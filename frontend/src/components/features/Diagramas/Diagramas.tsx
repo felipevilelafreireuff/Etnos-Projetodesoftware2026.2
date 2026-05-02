@@ -60,12 +60,9 @@ export default function Diagramas() {
 
       {!easterEgg && (
         <>
-          <div
-            className={styles.imagemContainer}
-            onClick={() => setAberta(true)}
-            title="Clique para ampliar"
-          >
+          <div className={styles.imagemContainer} onClick={() => setAberta(true)}>
             <Image src={imagem} alt={tab} fill className={styles.imagem} unoptimized />
+            <div className={styles.tooltip}>🔍 Clique para ampliar</div>
           </div>
 
           {aberta && (
