@@ -1,10 +1,80 @@
 'use client';
 import Image from 'next/image';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { useDiagramasScreen } from '@/src/hooks/diagramas/useDiagramasScreen';
 import { useStrings } from '@/src/contexts/LocaleContext';
 import LoadingState from '@/src/components/shared/LoadingState';
 import MermaidViewer from '../DiagramaClasses/components/MermaidViewer/MermaidViewer';
 import styles from './Diagramas.module.css';
+
+function ImagemZoom({ src, alt }: { src: string; alt: string }) {
+  const [open, setOpen]   = useState(false);
+  const [scale, setScale] = useState(1);
+  const [pos, setPos]     = useState({ x: 0, y: 0 });
+  const dragging  = useRef(false);
+  const lastMouse = useRef({ x: 0, y: 0 });
+
+  const openLightbox  = useCallback(() => { setOpen(true); setScale(1); setPos({ x: 0, y: 0 }); }, []);
+  const closeLightbox = useCallback(() => setOpen(false), []);
+
+  const onWheel = useCallback((e: React.WheelEvent) => {
+    e.preventDefault();
+    setScale(s => Math.min(8, Math.max(0.5, s - e.deltaY * 0.002)));
+  }, []);
+
+  const onMouseDown = useCallback((e: React.MouseEvent) => {
+    dragging.current = true;
+    lastMouse.current = { x: e.clientX, y: e.clientY };
+  }, []);
+
+  const onMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!dragging.current) return;
+    const dx = e.clientX - lastMouse.current.x;
+    const dy = e.clientY - lastMouse.current.y;
+    lastMouse.current = { x: e.clientX, y: e.clientY };
+    setPos(p => ({ x: p.x + dx, y: p.y + dy }));
+  }, []);
+
+  const onMouseUp = useCallback(() => { dragging.current = false; }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  return (
+    <>
+      <div className={styles.imagemContainer} onClick={openLightbox} title="Clique para ampliar">
+        <Image src={src} alt={alt} fill className={styles.imagem} unoptimized />
+        <div className={styles.zoomHint}>🔍</div>
+      </div>
+
+      {open && (
+        <div
+          className={styles.lightboxOverlay}
+          onClick={closeLightbox}
+          onMouseMove={onMouseMove}
+          onMouseUp={onMouseUp}
+        >
+          <button className={styles.lightboxClose} onClick={closeLightbox}>✕</button>
+          <div
+            className={styles.lightboxInner}
+            onClick={e => e.stopPropagation()}
+            onWheel={onWheel}
+            onMouseDown={onMouseDown}
+            style={{ transform: `translate(${pos.x}px, ${pos.y}px) scale(${scale})`, cursor: dragging.current ? 'grabbing' : 'grab' }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={src} alt={alt} className={styles.lightboxImg} draggable={false} />
+          </div>
+          <div className={styles.lightboxDica}>Scroll para zoom · Arraste para mover · Esc para fechar</div>
+        </div>
+      )}
+    </>
+  );
+}
 
 export default function Diagramas() {
   const S = useStrings();
@@ -49,17 +119,7 @@ export default function Diagramas() {
       {loading && <LoadingState label={S.diagramas.carregando} />}
       {error   && <p className={styles.error}>{S.errors.network}</p>}
 
-      {!easterEgg && (
-        <div className={styles.imagemContainer}>
-          <Image
-            src={imagem}
-            alt={tab}
-            fill
-            className={styles.imagem}
-            unoptimized
-          />
-        </div>
-      )}
+      {!easterEgg && <ImagemZoom src={imagem} alt={tab} />}
 
       {easterEgg && mermaid && <MermaidViewer chart={mermaid} />}
 

@@ -18,10 +18,100 @@
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
+  cursor: zoom-in;
+  transition: border-color 0.2s;
+}
+
+.imagemContainer:hover {
+  border-color: var(--color-gold);
 }
 
 .imagem {
   object-fit: contain;
+}
+
+.zoomHint {
+  position: absolute;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.imagemContainer:hover .zoomHint {
+  opacity: 1;
+}
+
+/* ── Lightbox ── */
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.lightboxClose:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightboxInner {
+  will-change: transform;
+  transition: transform 0.05s linear;
+  user-select: none;
+}
+
+.lightboxImg {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+
+.lightboxDica {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 .codigoBloco {
