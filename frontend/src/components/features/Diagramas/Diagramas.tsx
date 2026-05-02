@@ -66,10 +66,6 @@ export default function Diagramas() {
             title="Clique para ampliar"
           >
             <Image src={imagem} alt={tab} fill className={styles.imagem} unoptimized />
-            <div className={styles.zoomHint}>
-              <span>🔍</span>
-              <span>Clique para ampliar</span>
-            </div>
           </div>
 
           {aberta && (
