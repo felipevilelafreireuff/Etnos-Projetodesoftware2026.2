@@ -63,7 +63,7 @@ export default function Diagramas() {
 
       {easterEgg && mermaid && <MermaidViewer chart={mermaid} />}
 
-      {easterEgg && (tab === 'jogar-bando' || tab === 'comunicacao') && codigo && (
+      {(tab === 'jogar-bando' || tab === 'comunicacao') && codigo && (
         <div className={styles.codigoBloco}>
           <div className={styles.codigoHeader}>
             <h3 className={styles.codigoTitulo}>{S.diagramas.implementacao}</h3>
