@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './GameMap.module.css';
 import { useJogoStore } from '@/src/store/jogoStore';
 import { useStrings } from '@/src/contexts/LocaleContext';
 import { CorReino } from '../../../../../../backend/ts/enums';
+import { ASSETS } from '@/src/constants/assets';
 
 const TERRITORIOS: Record<string, {
   d: string;
@@ -59,11 +60,22 @@ export default function GameMap() {
   const jogo    = useJogoStore(s => s.jogo);
   const tick    = useJogoStore(s => s.tick);
   const posicionarMarcador = useJogoStore(s => s.posicionarMarcador);
+  const [bgFailed, setBgFailed] = useState(false);
 
   if (!jogo) return null;
 
+  const showBg = !!ASSETS.map.fundo && !bgFailed;
+
   return (
     <div className={styles.container}>
+      {showBg && (
+        <img
+          src={ASSETS.map.fundo}
+          alt=""
+          className={styles.bgImage}
+          onError={() => setBgFailed(true)}
+        />
+      )}
       <svg
         className={styles.svg}
         viewBox="0 0 1000 680"

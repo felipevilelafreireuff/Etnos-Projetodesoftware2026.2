@@ -28,18 +28,24 @@
   justify-content: center;
   align-items: flex-end;
   pointer-events: auto;
-  transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  /* gap negativo faz elas se sobreporem */
-  gap: -60px;
-}
-
-.cardsExpanded {
-  gap: -20px;
 }
 
 .cardWrapper {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  margin-left: -60px;
+}
+
+.cardWrapper:first-child {
+  margin-left: 0;
+}
+
+.cardsExpanded .cardWrapper {
+  margin-left: -20px;
+}
+
+.cardsExpanded .cardWrapper:first-child {
+  margin-left: 0;
 }
 
 .cardWrapper:hover {

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styles from './SetupPartida.module.css';
 import { useJogoStore } from '@/src/store/jogoStore';
 import { useStrings } from '@/src/contexts/LocaleContext';
+import { ASSETS } from '@/src/constants/assets';
 
 export default function SetupPartida() {
   const S = useStrings();
@@ -40,7 +41,10 @@ export default function SetupPartida() {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={ASSETS.ui.setupBg ? { backgroundImage: `url(${ASSETS.ui.setupBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+    >
       <form className={styles.form} onSubmit={handleSubmit}>
         <h2 className={styles.title}>{S.jogo.configPartida}</h2>
         {mensagem && <div className={styles.error}>{mensagem}</div>}

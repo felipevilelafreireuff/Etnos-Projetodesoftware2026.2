@@ -57,13 +57,15 @@ const ptBR = {
       disciplina:   'Disciplina',
       periodo:      'Período',
       universidade: 'Universidade',
-      projeto:      'Projeto',
+      atividade:    'Atividade',
+      professor:    'Professor',
     },
     valores: {
       disciplina:   'Projeto de Software',
       periodo:      '2026.1',
       universidade: 'Universidade Federal Fluminense',
-      projeto:      'EtNós — Adaptação do Ethnos',
+      atividade:    'Trabalho - 1a rodada',
+      professor:    'João Felipe Nicolaci Pimentel',
     },
   },
 

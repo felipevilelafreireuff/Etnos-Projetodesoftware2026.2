@@ -59,13 +59,15 @@ const en: StringsShape = {
       disciplina:   'Course',
       periodo:      'Semester',
       universidade: 'University',
-      projeto:      'Project',
+      atividade:    'Activity',
+      professor:    'Professor',
     },
     valores: {
       disciplina:   'Software Project',
       periodo:      '2026.1',
       universidade: 'Universidade Federal Fluminense',
-      projeto:      'EtNós — Ethnos Adaptation',
+      atividade:    'Trabalho - 1a rodada',
+      professor:    'João Felipe Nicolaci Pimentel',
     },
   },
 

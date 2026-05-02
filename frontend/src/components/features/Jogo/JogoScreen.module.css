@@ -1,8 +1,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+  /* layout.tsx já aplica paddingTop: --header-height no <main>, então começamos abaixo do site header */
+  height: calc(100vh - var(--header-height));
+  width: 100%;
   background-color: var(--color-bg);
   overflow: hidden;
   position: relative;
@@ -12,6 +13,6 @@
   display: flex;
   flex: 1;
   margin-top: 96px; /* Altura do PlayerBar */
-  height: calc(100vh - 96px);
+  height: calc(100vh - var(--header-height) - 96px - 180px); /* 180px = PlayerHand */
   width: 100%;
 }

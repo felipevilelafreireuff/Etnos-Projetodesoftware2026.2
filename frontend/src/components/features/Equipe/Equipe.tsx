@@ -63,8 +63,12 @@ export default function Equipe() {
             <span className={styles.projetoValor}>{S.equipe.valores.universidade}</span>
           </div>
           <div className={styles.projetoCard}>
-            <span className={styles.projetoLabel}>{S.equipe.labels.projeto}</span>
-            <span className={styles.projetoValor}>{S.equipe.valores.projeto}</span>
+            <span className={styles.projetoLabel}>{S.equipe.labels.atividade}</span>
+            <span className={styles.projetoValor}>{S.equipe.valores.atividade}</span>
+          </div>
+          <div className={styles.projetoCard}>
+            <span className={styles.projetoLabel}>{S.equipe.labels.professor}</span>
+            <span className={styles.projetoValor}>{S.equipe.valores.professor}</span>
           </div>
         </div>
       </div>

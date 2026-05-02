@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { useDiagramasScreen } from '@/src/hooks/diagramas/useDiagramasScreen';
 import { useStrings } from '@/src/contexts/LocaleContext';
 import LoadingState from '@/src/components/shared/LoadingState';
@@ -7,11 +8,22 @@ import styles from './Diagramas.module.css';
 
 export default function Diagramas() {
   const S = useStrings();
-  const { tab, setTab, lang, setLang, mermaid, loading, error, codigo } = useDiagramasScreen();
+  const {
+    tab, setTab,
+    lang, setLang,
+    mermaid, imagem,
+    loading, error, codigo,
+    easterEgg, handleTitleClick,
+  } = useDiagramasScreen();
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>{S.diagramas.titulo}</h1>
+      <h1
+        className={styles.title}
+        onClick={handleTitleClick}
+      >
+        {S.diagramas.titulo}
+      </h1>
 
       <div className={styles.tabs}>
         <button
@@ -36,8 +48,22 @@ export default function Diagramas() {
 
       {loading && <LoadingState label={S.diagramas.carregando} />}
       {error   && <p className={styles.error}>{S.errors.network}</p>}
-      {mermaid && <MermaidViewer chart={mermaid} />}
-      {(tab === 'jogar-bando' || tab === 'comunicacao') && codigo && (
+
+      {!easterEgg && (
+        <div className={styles.imagemContainer}>
+          <Image
+            src={imagem}
+            alt={tab}
+            fill
+            className={styles.imagem}
+            unoptimized
+          />
+        </div>
+      )}
+
+      {easterEgg && mermaid && <MermaidViewer chart={mermaid} />}
+
+      {easterEgg && (tab === 'jogar-bando' || tab === 'comunicacao') && codigo && (
         <div className={styles.codigoBloco}>
           <div className={styles.codigoHeader}>
             <h3 className={styles.codigoTitulo}>{S.diagramas.implementacao}</h3>
